@@ -50,10 +50,6 @@ pipeline{
                       script{
                           def dockerCmd = "docker run -p 8085:8085 -d --network=my-net 67.205.176.30:8083/timesheet-app:${IMAGE_NAME}"
                           sshagent(['ec2-server-key']){
-                            sh "ssh -o StrictHostKeyChecking=no ec2-user@51.20.143.41 docker network create my-net"
-      
-                            sh "ssh -o StrictHostKeyChecking=no ec2-user@51.20.143.41 docker run --name mysql -p 3306:3306 -v /my/custom:/etc/mysql/conf.d -e MYSQL_ALLOW_EMPTY_PASSWORD=yes --network=my-net -d mysql:latest"
-                            sh "ssh -o StrictHostKeyChecking=no ec2-user@51.20.143.41 docker run --name phpmyadmin -d -e PMA_HOST=mysql -e PMA_PORT=3306  -p 8080:80 --network=my-net phpmyadmin:latest"
                                 sh "ssh -o StrictHostKeyChecking=no ec2-user@51.20.143.41 ${dockerCmd}"
                           }
                              }
