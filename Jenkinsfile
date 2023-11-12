@@ -71,7 +71,7 @@ pipeline{
              sh 'git add .'
              sh 'git commit -m "c1:version bump [ci skip] "'
 
-             sh 'git push origin'
+             sh 'git push origin main'
            }
                }
             }
