@@ -71,7 +71,7 @@ pipeline{
              sh 'git add .'
              sh 'git commit -m "c1:version bump [ci skip] "'
 
-             sh 'git push origin HEAD:jenkins-jobs '
+             sh 'git push origin'
            }
                }
             }
