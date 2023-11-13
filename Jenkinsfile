@@ -50,7 +50,7 @@ pipeline{
                       script{
                           def dockerCmd = "docker run -p 8085:8085 -d --network=my-net 67.205.176.30:8083/timesheet-app:${IMAGE_NAME}"
                           sshagent(['ec2-server-key']){
-                                sh "ssh -o StrictHostKeyChecking=no ec2-user@51.20.143.41 ${dockerCmd}"
+                                sh "ssh -o StrictHostKeyChecking=no ec2-user@13.49.78.69 ${dockerCmd}"
                           }
                              }
                      }
